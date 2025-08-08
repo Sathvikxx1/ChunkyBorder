@@ -94,7 +94,7 @@ public final class ChunkyBorderBukkit extends JavaPlugin implements Listener {
         if (Folia.isFolia()) {
             Folia.onServerInit(this, borderInitTask);
         } else {
-            getServer().getScheduler().scheduleSyncDelayedTask(this, borderInitTask);
+            getServer().getScheduler().scheduleAsyncDelayedTask(this, borderInitTask);
         }
         final long checkInterval = chunkyBorder.getConfig().checkInterval();
         final Runnable borderCheckTask = new BorderCheckTask(chunkyBorder);
