@@ -102,7 +102,7 @@ public final class ChunkyBorderBukkit extends JavaPlugin implements Listener {
         if (Folia.isFolia()) {
             Folia.scheduleFixedGlobal(this, borderCheckTask, checkInterval, checkInterval);
         } else {
-            getServer().getScheduler().scheduleSyncRepeatingTask(this, borderCheckTask, checkInterval, checkInterval);
+            getServer().getScheduler().scheduleAsyncRepeatingTask(this, borderCheckTask, checkInterval, checkInterval);
         }
         chunkyBorder.getChunky().getCommands().put("border", new BorderCommand(chunkyBorder));
         getServer().getMessenger().registerOutgoingPluginChannel(this, PLAY_BORDER_PACKET_ID);
